@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Game Over Overlay -->
+    <div class="overlay hidden" id="game-over-overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <h1 id="modal-title">Game Over</h1>
+            <h4>The word or phrase was:</h4>
+            <p class="module-word"></p>
+            <button class="play-again" id="play-again-button">Start Over</button>
+        </div>
+    </div>
+
+    <!-- Main Game Container -->
+    <main class="game-container">
+        <section class="hangman-section">
+            <div class="hangman-hanger">
+                <div class="cross-bar"></div>
+                <div class="pole-hanger">
+                    <div class="man">
+                        <div class="head hidden"></div>
+                        <div class="body hidden"></div>
+                        <div class="left-arm hidden"></div>
+                        <div class="right-arm hidden"></div>
+                        <div class="left-leg hidden"></div>
+                        <div class="right-leg hidden"></div>
+                    </div>
+                    <div class="pole"></div>
+                    <div class="hanger"></div>
+                </div>
+                <div class="base"></div>
+            </div>
+        </section>
+
+        <section class="guess-section">
+            <div class="wrong-letters">
+                <h4>Wrong Letters</h4>
+                <div class="letters" aria-live="polite"></div>
+            </div>
+            <div class="letter-guess">
+                <h4>Guess a letter or the entire word/phrase</h4>
+                <input type="text" class="letter-input" placeholder="Enter a letter or guess the word" aria-label="Letter or word input">
+            </div>
+        </section>
+    </main>
+
+    <!-- Word and Category Display -->
+    <section class="word-container">
+        <p class="word">_ _ _ _ _</p>
+        <h5 class="category">Category: Example</h5>
+    </section>
+
+    <!-- Reset Button -->
+    <button id="reset-button" class="reset-button">Reset Game</button>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

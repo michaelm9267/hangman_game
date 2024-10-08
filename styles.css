@@ -1,0 +1,348 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Overlay Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(52, 73, 94, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: #ecf0f1;
+    padding: 30px 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.modal h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #e74c3c;
+}
+
+.modal h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.module-word {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #34495e;
+}
+
+.play-again {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.play-again:hover {
+    background-color: #2980b9;
+}
+
+/* Game Container Styles */
+.game-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Hangman Hanger Styles */
+.hangman-hanger {
+    position: relative;
+    width: 250px;
+    height: 300px;
+}
+
+.cross-bar {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    width: 150px;
+    height: 10px;
+    background-color: #2c3e50;
+}
+
+.pole-hanger {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    width: 10px;
+    height: 250px;
+    background-color: #2c3e50;
+}
+
+.hanger {
+    position: absolute;
+    top: 0;
+    left: 140px;
+    width: 10px;
+    height: 35px;
+    background-color: #2c3e50;
+}
+
+.base {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 10px;
+    background-color: #2c3e50;
+}
+
+/* Man Styles */
+.man {
+    position: absolute;
+    top: 35px;
+    left: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.man div {
+    display: none;
+    background-color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.man div.visible {
+    display: block;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.head {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #2c3e50;
+    border-radius: 50%;
+}
+
+.body {
+    width: 5px;
+    height: 90px;
+    background-color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.left-arm, .right-arm {
+    width: 60px;
+    height: 5px;
+    background-color: #2c3e50;
+    position: absolute;
+}
+
+.left-arm {
+    transform: rotate(45deg);
+    top: 50px;
+    left: -35px;
+}
+
+.right-arm {
+    transform: rotate(-45deg);
+    top: 50px;
+    right: -35px;
+}
+
+.left-leg, .right-leg {
+    width: 60px;
+    height: 5px;
+    background-color: #2c3e50;
+    position: absolute;
+}
+
+.left-leg {
+    transform: rotate(-45deg);
+    top: 150px;
+    left: -35px;
+}
+
+.right-leg {
+    transform: rotate(45deg);
+    top: 150px;
+    right: -35px;
+}
+
+/* Guess Section Styles */
+.guess-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.wrong-letters h4, .letter-guess h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.letters {
+    min-height: 30px;
+    font-size: 1.1em;
+    color: #e74c3c;
+    letter-spacing: 5px;
+}
+
+.letter-input {
+    padding: 10px;
+    font-size: 1em;
+    width: 250px;
+    border: 2px solid #2c3e50;
+    border-radius: 5px;
+    transition: border-color 0.2s ease;
+}
+
+.letter-input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Word Container Styles */
+.word-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.word {
+    display: flex;
+    gap: 15px;
+    font-size: 2em;
+    letter-spacing: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.word .letter {
+    border-bottom: 3px solid #2c3e50;
+    width: 30px;
+    text-align: center;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.word .letter.correct {
+    color: #27ae60;
+    border-bottom-color: #27ae60;
+}
+
+.word .space {
+    width: 30px;
+    border: none;
+}
+
+/* Reset Button Styles */
+.reset-button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.reset-button:hover {
+    background-color: #2980b9;
+}
+
+.reset-button:active {
+    background-color: #1abc9c;
+}
+
+.reset-button:focus {
+    outline: 2px solid #3498db;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hangman-hanger {
+        width: 200px;
+    }
+
+    .hangman-hanger .cross-bar, .hangman-hanger .pole, .hangman-hanger .hanger, .hangman-hanger .base {
+        width: 80%;
+    }
+
+    .word-container {
+        margin-top: 30px;
+    }
+
+    .word {
+        font-size: 1.5em;
+        gap: 10px;
+    }
+
+    .letter-input {
+        width: 200px;
+    }
+}
+
+/* Button Hover Effects */
+.play-again:hover, .reset-button:hover {
+    transform: translateY(-2px);
+}
+
+.play-again:active, .reset-button:active {
+    transform: translateY(0);
+}
+
+/* Smooth Transition for Word Letters */
+.word .letter {
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
